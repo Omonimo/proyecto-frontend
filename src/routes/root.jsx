@@ -38,7 +38,7 @@ export default function Root() {
     return (
       <>
         <div id="sidebar">
-          <h1>React Router Contacts</h1>
+          <h1>Contactos</h1>
           <div>
 
           <Form id="search-form" role="search">
@@ -46,7 +46,7 @@ export default function Root() {
                 id="q"
                 className={searching ? "loading" : ""}
                 aria-label="Search contacts"
-                placeholder="Search"
+                placeholder="Buscar"
                 type="search"
                 name="q"
                 defaultValue={q}
@@ -69,7 +69,7 @@ export default function Root() {
             </Form>
             
             <Form method="post">
-            <button type="submit">New</button>
+            <button type="submit">Nuevo</button>
           </Form>
           </div>
           <nav>
@@ -83,7 +83,7 @@ export default function Root() {
                         {contact.first} {contact.last}
                       </>
                     ) : (
-                      <i>No Name</i>
+                      <i>Sin Nombre</i>
                     )}{" "}
                     {contact.favorite && <span>★</span>}
                   </Link>
@@ -92,7 +92,7 @@ export default function Root() {
             </ul>
           ) : (
             <p>
-              <i>No contacts</i>
+              <i>Sin contactos</i>
             </p>
           )}
         </nav>

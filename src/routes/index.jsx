@@ -1,13 +1,12 @@
 export default function Index() {
     return (
       <p id="zero-state">
-        This is a demo for React Router.
+        Esto es un proyecto para BEDU
         <br />
-        Check out{" "}
-        <a href="https://reactrouter.com">
-          the docs at reactrouter.com
+        Echa un vistazo a sus cursos {" "}
+        <a href="https://bedu.org/">
+          bedu.org
         </a>
-        .
       </p>
     );
   }

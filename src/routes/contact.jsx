@@ -43,7 +43,7 @@ export default function Contact() {
               {contact.first} {contact.last}
             </>
           ) : (
-            <i>No Name</i>
+            <i>Sin Nombre</i>
           )}{" "}
           <Favorite contact={contact} />
         </h1>
@@ -63,7 +63,7 @@ export default function Contact() {
 
         <div>
           <Form action="edit">
-            <button type="submit">Edit</button>
+            <button type="submit">Editar</button>
           </Form>
           <Form
             method="post"
@@ -71,14 +71,14 @@ export default function Contact() {
             onSubmit={(event) => {
               if (
                 !confirm(
-                  "Please confirm you want to delete this record."
+                  "Confirme que desea eliminar este registro."
                 )
               ) {
                 event.preventDefault();
               }
             }}
           >
-            <button type="submit">Delete</button>
+            <button type="submit">Eliminar</button>
           </Form>
         </div>
       </div>
@@ -101,8 +101,8 @@ function Favorite({ contact }) {
         value={favorite ? "false" : "true"}
         aria-label={
           favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
+            ? "Eliminar de favoritos"
+            : "Añadir a favoritos"
         }
       >
         {favorite ? "★" : "☆"}
