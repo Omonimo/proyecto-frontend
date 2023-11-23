@@ -44,9 +44,9 @@ export default function Root() {
           <Form id="search-form" role="search">
               <input
                 id="q"
-                className={searching ? "loading" : ""}
-                aria-label="Search contacts"
-                placeholder="Search"
+                className={searching ? "cargando" : ""}
+                aria-label="Buscar notas"
+                placeholder="Buscar"
                 type="search"
                 name="q"
                 defaultValue={q}
@@ -69,7 +69,7 @@ export default function Root() {
             </Form>
             
             <Form method="post">
-            <button type="submit">New</button>
+            <button type="submit">Nueva Nota</button>
           </Form>
           </div>
           <nav>
@@ -92,7 +92,7 @@ export default function Root() {
             </ul>
           ) : (
             <p>
-              <i>No contacts</i>
+              <i>Sin notas</i>
             </p>
           )}
         </nav>

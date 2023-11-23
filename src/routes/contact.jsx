@@ -18,7 +18,7 @@ export async function loader({ params }) {
   if (!contact) {
     throw new Response("", {
       status: 404,
-      statusText: "Not Found",
+      statusText: "Pagina no encontrada",
     });
   }
   return { contact };
@@ -30,40 +30,23 @@ export default function Contact() {
   return (
     <div id="contact">
       <div>
-        <img
-          key={contact.avatar}
-          src={contact.avatar || null}
-        />
-      </div>
-
-      <div>
         <h1>
           {contact.first || contact.last ? (
             <>
               {contact.first} {contact.last}
             </>
           ) : (
-            <i>No Name</i>
+            <i>Sin título</i>
           )}{" "}
           <Favorite contact={contact} />
         </h1>
 
-        {contact.twitter && (
-          <p>
-            <a
-              target="_blank"
-              href={`https://twitter.com/${contact.twitter}`}
-            >
-              {contact.twitter}
-            </a>
-          </p>
-        )}
-
+        
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
           <Form action="edit">
-            <button type="submit">Edit</button>
+            <button type="submit">Editar</button>
           </Form>
           <Form
             method="post"
@@ -71,14 +54,14 @@ export default function Contact() {
             onSubmit={(event) => {
               if (
                 !confirm(
-                  "Please confirm you want to delete this record."
+                  "¿Quieres borrar esta nota?"
                 )
               ) {
                 event.preventDefault();
               }
             }}
           >
-            <button type="submit">Delete</button>
+            <button type="submit">Eliminar</button>
           </Form>
         </div>
       </div>
@@ -101,8 +84,8 @@ function Favorite({ contact }) {
         value={favorite ? "false" : "true"}
         aria-label={
           favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
+            ? "Remover de favoritos"
+            : "Añadir a Favoritos"
         }
       >
         {favorite ? "★" : "☆"}
