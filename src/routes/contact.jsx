@@ -32,7 +32,7 @@ export default function Contact() {
       <div>
         <img
           key={contact.avatar}
-          src={contact.avatar || null}
+          src={contact.avatar || "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp"}
         />
       </div>
 
