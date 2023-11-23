@@ -5,7 +5,11 @@ import {
     useNavigate,
   } from "react-router-dom";
   import { updateContact } from "../contacts";
-  
+  import newContactIMG from "../assets/newContact.svg";
+  import instagramIMG from "../assets/instagram.svg";
+  import linkedinIMG from "../assets/linkedin.svg";
+  import notesIMG from "../assets/notes.svg";
+  import '../Edit.css';
   export async function action({ request, params }) {
     const formData = await request.formData();
     const updates = Object.fromEntries(formData);
@@ -20,44 +24,48 @@ export default function EditContact() {
 
   return (
     <Form method="post" id="contact-form">
-      <p>
-        <span>Nombre</span>
+      <label>
+        <img className="image-size" src={newContactIMG} alt="newContact" />
+        <span>Name</span>
         <input
-          placeholder="Nombre"
-          aria-label="Nombre"
+          placeholder="First"
+          aria-label="First name"
           type="text"
           name="first"
           defaultValue={contact.first}
         />
         <input
-          placeholder="Apellidos"
-          aria-label="Apellidos"
+          placeholder="Last"
+          aria-label="Last name"
           type="text"
           name="last"
           defaultValue={contact.last}
         />
-      </p>
+      </label>
       <label>
-        <span>Twitter</span>
+        <img className="image-size" src={instagramIMG} alt="instagram" />
+        <span>Instagram</span>
         <input
           type="text"
-          name="twitter"
+          name="instagram"
           placeholder="@jack"
-          defaultValue={contact.twitter}
+          defaultValue={contact.instagram}
         />
       </label>
       <label>
-        <span>Avatar URL</span>
+        <img className="image-size" src={linkedinIMG} alt="linkedin" />
+        <span>LinkedIn</span>
         <input
-          placeholder="https://example.com/avatar.jpg"
-          aria-label="Avatar URL"
+          placeholder="https://example.com/linkedIn.com"
+          aria-label="LinkedIn"
           type="text"
-          name="avatar"
-          defaultValue={contact.avatar}
+          name="linkedin"
+          defaultValue={contact.linkedin}
         />
       </label>
       <label>
-        <span>Notas</span>
+        <img className="image-size" src={notesIMG} alt="notes" />
+        <span>Notes</span>
         <textarea
           name="notes"
           defaultValue={contact.notes}

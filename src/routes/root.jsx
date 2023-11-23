@@ -3,7 +3,7 @@ import {
     Link,
     useLoaderData,
     Form,
-    useNavigation,
+    useNavigate,
     useSubmit,
   } from "react-router-dom";
   import { getContacts, createContact } from "../contacts";
@@ -22,7 +22,7 @@ import {
 
 export default function Root() {
   const { contacts, q } = useLoaderData();
-  const navigation = useNavigation();
+  const navigate = useNavigate();
   const submit = useSubmit();
 
   const searching =
@@ -34,6 +34,12 @@ export default function Root() {
   useEffect(() => {
     document.getElementById("q").value = q;
   }, [q]);
+
+  async function handleNewContact(event) {
+    event.preventDefault();
+    const newContact = await createContact();
+    navigate(`contacts/${newContact.id}/edit`);
+  }
 
     return (
       <>
@@ -68,7 +74,7 @@ export default function Root() {
               ></div>
             </Form>
             
-            <Form method="post">
+            <Form method="post" onSubmit={handleNewContact}>
             <button type="submit">Nuevo</button>
           </Form>
           </div>

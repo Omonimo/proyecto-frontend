@@ -4,6 +4,7 @@ import {
   useFetcher,
 } from "react-router-dom";
 import { getContact, updateContact } from "../contacts";
+import friendsImage from "../assets/friends.svg";
 
 export async function action({ request, params }) {
   let formData = await request.formData();
@@ -31,8 +32,9 @@ export default function Contact() {
     <div id="contact">
       <div>
         <img
-          key={contact.avatar}
-          src={contact.avatar || "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp"}
+          //key={contact.avatar}
+          src={friendsImage}
+          alt="friend"
         />
       </div>
 
@@ -48,17 +50,26 @@ export default function Contact() {
           <Favorite contact={contact} />
         </h1>
 
-        {contact.twitter && (
+        {contact.instagram && (
           <p>
             <a
               target="_blank"
-              href={`https://twitter.com/${contact.twitter}`}
+              href={`https://instagram.com/${contact.instagram}`}
             >
-              {contact.twitter}
+              {contact.instagram}
             </a>
           </p>
         )}
-
+        {contact.linkedin && (
+          <p>
+            <a className="linkedin"
+              target="_blank"
+              href={contact.linkedin}
+            >
+              {contact.linkedin}
+            </a>
+          </p>
+        )}
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
