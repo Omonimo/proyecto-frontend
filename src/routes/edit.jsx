@@ -43,6 +43,16 @@ export default function EditContact() {
         />
       </label>
       <label>
+        <span>Avatar URL</span>
+        <input
+          placeholder="https://example.com/avatar.jpg"
+          aria-label="Avatar URL"
+          type="text"
+          name="avatar"
+          defaultValue={contact.avatar}
+        />
+      </label>
+      <label>
         <img className="image-size" src={instagramIMG} alt="instagram" />
         <span>Instagram</span>
         <input
